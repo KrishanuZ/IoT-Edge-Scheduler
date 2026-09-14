@@ -1,4 +1,4 @@
-# Architecture: Doubly Linked List
+# **Architecture**: Doubly Linked List
 
 ## Node
 
@@ -10,7 +10,8 @@ struct ProcessNode {
     unsigned int ct;    
     unsigned int tat;
     unsigned int wt;
-    unsigned int rt; 
+    unsigned int rt;
+    
     struct ProcessNode *prev;
     struct ProcessNode *next;
 };
@@ -25,6 +26,8 @@ struct ProcessNode {
 | `tat` | TurnAround Time | The number of ticks for which the process was inside the scheduler. `tat=ct-at` |
 | `wt` | Waiting Time | The number of CPU ticks for which the process was scheduled and was not using the resource. `wt=tat-bt` |
 | `rt` | Remaining Time | The number of ticks left for the process to execute. |
+
+---
 
 ## Linked List Manager
 
