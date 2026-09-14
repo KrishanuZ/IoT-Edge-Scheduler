@@ -12,4 +12,8 @@ struct DoublyLinkedList {
     size_t length; // To track the length of the DLL
 };
 
+
+// Functions:
+struct DoublyLinkedList *createList();
+
 #endif
