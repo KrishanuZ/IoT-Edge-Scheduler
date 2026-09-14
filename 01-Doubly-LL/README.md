@@ -1,6 +1,8 @@
 # **Architecture**: Doubly Linked List
 
-## Node
+## Structures
+
+### Node
 
 ```c
 struct ProcessNode {
@@ -29,7 +31,7 @@ struct ProcessNode {
 
 ---
 
-## Linked List Manager
+### Linked List Manager
 
 ```c
 struct DoublyLinkedList {
@@ -38,3 +40,7 @@ struct DoublyLinkedList {
     size_t length; 
 };
 ```
+
+---
+
+## Utilities
