@@ -16,7 +16,7 @@ struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
     newNode->at = at;
     newNode->bt = bt;
     newNode->wt = newNode->bt; // Since the execution hasn't started yet
-    
+
     // Assign 0 to avoid generating garbage values
     newNode->ct = 0;
     newNode->tat=0;
@@ -25,7 +25,7 @@ struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
     return newNode;
 }
 
-struct ProcessNode *deleteNode(struct ProcessNode *deleteNode) {
-    free(deleteNode);
+struct ProcessNode *destroyNode(struct ProcessNode *node) {
+    free(node);
     return NULL; // Explicitly return NULL to avoid a dangling pointer
 }
