@@ -16,7 +16,7 @@ void node_creation_deletion() {
     }
     printf("Memory Allocation: OK.\n");
 
-    assert(newNode->pid == 1 && newNode->at == 0 && newNode->bt == 3 && "Metrics Assignment has failed.\n");
+    assert(newNode->pid == 1 && newNode->at == 0 && newNode->bt == 3 && "Error: Metrics Assignment has failed.\n");
     printf("Metric Assignment: OK\n");
     printf("\nCreation: OK\n");
 
@@ -30,6 +30,5 @@ void node_creation_deletion() {
 
 int main() {
     node_creation_deletion();
-
     return 0;
 }
