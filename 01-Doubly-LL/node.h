@@ -1,5 +1,5 @@
-#ifndef DLL_H
-#define DLL_H
+#ifndef NODE_H
+#define NODE_H
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -30,17 +30,8 @@ struct ProcessNode {
     struct ProcessNode *next;
 };
 
-struct DoublyLinkedList {
-    struct ProcessNode *head;
-    struct ProcessNode *tail;
+// Core Functions:
 
-    size_t length; // To track the length of the DLL
-};
-
-
-// Function prototypes:
-
-// Core Functions(ProcessNode):
 struct ProcessNode *createNode(pid_t, unsigned int, unsigned int);
 struct ProcessNode *destroyNode(struct ProcessNode*);
 
