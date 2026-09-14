@@ -4,6 +4,7 @@
 #include "node.h"
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 // Struct:
 struct DoublyLinkedList {
@@ -15,5 +16,6 @@ struct DoublyLinkedList {
 
 // Functions:
 struct DoublyLinkedList *createList();
+bool push_front(struct ProcessNode *);
 
 #endif
