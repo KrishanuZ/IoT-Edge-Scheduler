@@ -22,8 +22,8 @@ void node_creation_deletion() {
 
     //Deletion:
     printf("\n\nTesting Deletion:\n");
+     assert(newNode->prev == NULL && newNode->next==NULL && "Error: Links are not NULL.\n");
     newNode = destroyNode(newNode);
-    assert(newNode->prev == NULL && newNode->next==NULL && "Error: Links are not NULL.\n");
     assert(newNode==NULL && "Error: Node's memory has leaked.\n");
     printf("\nDeletion: OK.\n");
 }
