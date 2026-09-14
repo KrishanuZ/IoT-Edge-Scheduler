@@ -45,8 +45,10 @@ struct DoublyLinkedList {
 
 ## Utility Functions
 
+### 1. `createNode()`
+
 ```c
-1) struct ProcessNode *createNode(pid_t, unsigned int, unsigned int)
+struct ProcessNode *createNode(pid_t, unsigned int, unsigned int)
 ```
 
 * **Concept**: Allocates memeory to a process node using `malloc()`.
@@ -57,12 +59,14 @@ struct DoublyLinkedList {
   * **Auxilary Space**: `O(1)`
   * **Output Space**: `O(1)`
 
+### 2. `destroyNode()`
+
 ```c
-2) struct ProcessNode *destroyNode(struct ProcessNode*)
+struct ProcessNode *destroyNode(struct ProcessNode*)
 ```
 
-* **Concept**: Deallocates memeory to a process node using `free()`.
-* **Output**: Explictly returns `NULL` pointer.
+* **Concept**: Deallocates the memory of a process node using `free()`.
+* **Output**: Explicitly returns `NULL` pointer.
 * **Time Complexity:** `O(1)`.
 * **Space Complexity:**
   * **Input Space**: `O(1)`
