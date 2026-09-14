@@ -34,7 +34,7 @@ struct ProcessNode {
    ```
 
     * **Concept**: Allocates memory to a process node using `malloc()`.
-    * **Output**: Returns struct of type `ProcessNode`.
+    * **Output**: Returns a pointer to a struct of type `ProcessNode`.
     * **Time Complexity**: `O(1)`.
     * **Space Complexity**:
         * **Input Space**: `O(1)`
@@ -65,14 +65,16 @@ struct DoublyLinkedList {
 };
 ```
 
+* **Concept**: **head** and **tail** pointers are dynamically allocated Sentinel Nodes to eliminate `NULL` pointer edge cases.
+
 ### Core functions
 
 1. ```c
     struct DoublyLinkedList *createList()
    ```
 
-    * **Concept**: Allocates memory to a double ended queue of type `DoublyLinkedList` consisting structures of type `ProcessNode`.
-    * **Output**: Returns struct of type `DoublyLinkedList`.
+    * **Concept**: Allocates memory to a double ended queue of type `DoublyLinkedList` consisting of structures of type `ProcessNode`.
+    * **Output**: Returns a pointer to a struct of type `DoublyLinkedList`.
     * **Time Complexity**: `O(1)`
     * **Space Complexity**:
       * **Input Space**: `O(1)`
