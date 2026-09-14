@@ -37,4 +37,11 @@ struct DoublyLinkedList {
     size_t length; // To track the length of the DLL
 };
 
+
+// Function prototypes:
+
+// Core Functions:
+
+struct ProcessNode *createNode();
+
 #endif
