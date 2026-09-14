@@ -80,3 +80,15 @@ struct DoublyLinkedList {
       * **Input Space**: `O(1)`
       * **Auxilary Space**: `O(1)`
       * **Output Space**: `O(1)`
+
+2. ```c
+    bool push_front(struct DoublyLinkedList*, struct ProcessNode *)
+   ```
+
+    * **Concept**: Adds a `ProcessNode` at the start of the list.
+    * **Output**: Returns `false` when **NULL** pointers are passed. Returns `true` upon successful insertion.
+    * **Time Complexity**: `O(1)`
+    * **Space Complexity**:
+    * **Input Space**: `O(1)`
+    * **Auxilary Space**: `O(1)`
+    * **Output Space**: `O(1)`
