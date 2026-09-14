@@ -15,7 +15,10 @@ tat: TurnAround Time
 wt: Waiting Time
 */
 struct ProcessNode {
-    pid_t pid; 
+    pid_t pid; // Process ID
+
+    // Time Metrics:
+    
     unsigned int at;    
     unsigned int bt;   
     unsigned int ct;    
