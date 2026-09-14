@@ -40,9 +40,11 @@ struct DoublyLinkedList {
 
 // Function prototypes:
 
-// Core Functions:
-
+// Core Functions(ProcessNode):
 struct ProcessNode *createNode(pid_t, unsigned int, unsigned int);
 struct ProcessNode *destroyNode(struct ProcessNode*);
+
+// Core Functions(List):
+struct DoublyLinkedList *createList();
 
 #endif
