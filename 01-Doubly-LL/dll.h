@@ -26,6 +26,9 @@ struct ProcessNode {
     unsigned int wt;
 
     unsigned int rt; // rt: Rmaining time; Added for SRTF algo
+
+    struct ProcessNode *prev;
+    struct ProcessNode *next;
 };
 
 #endif
