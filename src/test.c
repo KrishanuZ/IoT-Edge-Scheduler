@@ -1,6 +1,9 @@
+#include "node.h"
+#include "list.h"
+
 #include <stdio.h>
 #include <assert.h>
-#include "list.h"
+
 
 void node_creation_deletion() {
     // (Reconstructed node creation since it was cut off above line 21)
