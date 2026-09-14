@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "dll.c"
+#include "dll.h"
 
 void node_creation_deletion() {
     
