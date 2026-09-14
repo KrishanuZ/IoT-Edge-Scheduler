@@ -1,8 +1,6 @@
-# **Architecture**: Doubly Linked List
+# Architecture: **Doubly Linked List**
 
-## Structures
-
-### Node
+## Structure: **Node**
 
 ```c
 struct ProcessNode {
@@ -29,21 +27,7 @@ struct ProcessNode {
 | `wt` | Waiting Time | The number of CPU ticks for which the process was scheduled and was not using the resource. `wt=tat-bt` |
 | `rt` | Remaining Time | The number of ticks left for the process to execute. |
 
----
-
-### Linked List Manager
-
-```c
-struct DoublyLinkedList {
-    struct ProcessNode *head;
-    struct ProcessNode *tail;
-    size_t length; 
-};
-```
-
----
-
-## Utility Functions
+### Core Functions
 
 1. ```c
     struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt)
@@ -68,3 +52,17 @@ struct DoublyLinkedList {
         * **Input Space**: `O(1)`
         * **Auxiliary Space**: `O(1)`
         * **Output Space**: `O(1)`
+
+---
+
+## Structure: **Linked List Manager**
+
+```c
+struct DoublyLinkedList {
+    struct ProcessNode *head;
+    struct ProcessNode *tail;
+    size_t length; 
+};
+```
+
+### Core functions
