@@ -31,4 +31,11 @@ struct ProcessNode {
     struct ProcessNode *next;
 };
 
+struct DoublyLinkedList {
+    struct ProcessNode *head;
+    struct ProcessNode *tail;
+
+    size_t length; // To track the length of the DLL
+};
+
 #endif
