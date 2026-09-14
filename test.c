@@ -17,15 +17,15 @@ void node_creation_deletion() {
     }
     printf("Memory Allocation: OK.\n");
 
-    assert(newNode->pid == 1 && newNode->at == 0 && newNode->bt == 3 && "Error: Metrics Assignment has failed.\n");
+    assert(newNode->pid == 1 && newNode->at == 0 && newNode->bt == 3 && "Error: Metrics Assignment has failed.");
     printf("Metric Assignment: OK\n");
     printf("\nCreation: OK\n");
 
     //Deletion:
     printf("\n\nTesting Deletion:\n");
-     assert(newNode->prev == NULL && newNode->next==NULL && "Error: Links are not NULL.\n");
+    assert(newNode->prev == NULL && newNode->next==NULL && "Error: Links are not NULL.");
     newNode = destroyNode(newNode);
-    assert(newNode==NULL && "Error: Node's memory has leaked.\n");
+    assert(newNode==NULL && "Error: Node's memory has leaked.");
     printf("\nDeletion: OK.\n");
 }
 
