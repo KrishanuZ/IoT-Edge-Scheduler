@@ -43,5 +43,6 @@ struct DoublyLinkedList {
 // Core Functions:
 
 struct ProcessNode *createNode();
+struct ProcessNode *deleteNode(struct ProcessNode*);
 
 #endif
