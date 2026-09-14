@@ -8,5 +8,13 @@ struct ProcessNode *createNode() {
         return NULL;
     }
 
+    // Assign links to NULL
+    newNode->prev = NULL;
+    newNode->next = NULL;
     return newNode;
+}
+
+struct ProcessNode *deleteNode(struct ProcessNode *deleteNode) {
+    free(deleteNode);
+    return NULL; // Explicitly return NULL to avoid a dangling pointer
 }
