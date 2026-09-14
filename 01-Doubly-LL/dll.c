@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "dll.h"
 
-struct ProcessNode *createNode() {
+struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
     struct ProcessNode *newNode = (struct ProcessNode *)malloc(sizeof(struct ProcessNode));
 
     if (!newNode) {
