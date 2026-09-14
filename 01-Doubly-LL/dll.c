@@ -26,10 +26,11 @@ struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
 }
 
 struct ProcessNode *destroyNode(struct ProcessNode *node) {
-    free(node);
 
     // Explicitly clear out the links
     node->prev = NULL;
     node->next = NULL;
+    
+    free(node);
     return NULL; // Explicitly return NULL to avoid a dangling pointer
 }
