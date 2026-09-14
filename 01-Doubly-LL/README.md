@@ -16,6 +16,16 @@ struct ProcessNode {
 };
 ```
 
+| Variable | Metric | Description |
+| :--- | :--- | :--- |
+| `pid` | Process ID | Unique ID assigned to a process. |
+| `at` | Arrival Time | The exact CPU tick when the process enters. |
+| `bt` | Burst Time | The number of CPU ticks requested by the process to complete its execution. |
+| `ct` | Completion Time | The exact CPU tick when the process exits the scheduler. |
+| `tat` | TurnAround Time | The number of ticks for which the process was inside the scheduler. `tat=ct-at` |
+| `wt` | Waiting Time | The number of CPU ticks for which the process was scheduled and was not using the resource. `wt=tat-bt` |
+| `rt` | Remaining Time | The number of ticks left for the process to execute. |
+
 ## Linked List Manager
 
 ```c
