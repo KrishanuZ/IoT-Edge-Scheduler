@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "dll.h"
+#include "node.h"
 
 struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
     struct ProcessNode *newNode = (struct ProcessNode *)malloc(sizeof(struct ProcessNode));

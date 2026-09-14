@@ -1,5 +1,5 @@
-#ifndef DLL_H
-#define DLL_H
+#ifndef NODE_H
+#define NODE_H
 
 #include <stdlib.h>
 #include <unistd.h>
