@@ -43,4 +43,16 @@ struct DoublyLinkedList {
 
 ---
 
-## Utilities
+## Utility Functions
+
+```c
+1) struct ProcessNode *createNode(pid_t, unsigned int, unsigned int)
+```
+
+* **Concept**: Allocates memeory to a process node using `malloc()`.
+* **Output**: Returns struct of type `ProcessNode`.
+* **Time Complexity:** `O(1)`.
+* **Space Complexity:**
+  * **Input Space**: `O(1)`
+  * **Auxilary Space**: `O(1)`
+  * **Output Space**: `O(1)`
