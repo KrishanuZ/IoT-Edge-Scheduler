@@ -31,11 +31,7 @@ struct ProcessNode {
 };
 
 // Core Functions:
-
 struct ProcessNode *createNode(pid_t, unsigned int, unsigned int);
 struct ProcessNode *destroyNode(struct ProcessNode*);
-
-// Core Functions(List):
-struct DoublyLinkedList *createList();
 
 #endif
