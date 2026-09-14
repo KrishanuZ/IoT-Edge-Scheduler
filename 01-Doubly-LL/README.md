@@ -66,3 +66,15 @@ struct DoublyLinkedList {
 ```
 
 ### Core functions
+
+1. ```c
+    struct DoublyLinkedList *createList()
+   ```
+
+    * **Concept**: Allocates memory to a double ended queue of type `DoublyLinkedList` consisting structures of type `ProcessNode`.
+    * **Output**: Returns struct of type `DoublyLinkedList`.
+    * **Time Complexity**: `O(1)`
+    * **Space Complexity**:
+      * **Input Space**: `O(1)`
+      * **Auxilary Space**: `O(1)`
+      * **Output Space**: `O(1)`
