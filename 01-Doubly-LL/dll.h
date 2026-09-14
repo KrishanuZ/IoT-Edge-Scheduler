@@ -16,11 +16,11 @@ wt: Waiting Time
 */
 struct ProcessNode {
     pid_t pid; 
-    int at;    
-    int bt;   
-    int ct;    
-    int tat;
-    int wt;
+    unsigned int at;    
+    unsigned int bt;   
+    unsigned int ct;    
+    unsigned int tat;
+    unsigned int wt;
 };
 
 #endif
