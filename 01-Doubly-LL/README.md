@@ -56,3 +56,16 @@ struct DoublyLinkedList {
   * **Input Space**: `O(1)`
   * **Auxilary Space**: `O(1)`
   * **Output Space**: `O(1)`
+
+```c
+2) struct ProcessNode *destroyNode(struct ProcessNode*)
+```
+
+* **Concept**: Deallocates memeory to a process node using `free()`.
+* **Output**: Explictly returns `NULL` pointer.
+* **Time Complexity:** `O(1)`.
+* **Space Complexity:**
+  * **Input Space**: `O(1)`
+  * **Auxilary Space**: `O(1)`
+  * **Output Space**: `O(1)`
+  
