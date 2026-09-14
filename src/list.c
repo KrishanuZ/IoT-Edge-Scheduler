@@ -25,3 +25,21 @@ struct DoublyLinkedList *createList() {
 
     return list;
 }
+
+bool push_front(struct DoublyLinkedList *list, struct ProcessNode *node) {
+    if (!list || !node) {
+        return false;
+    }
+
+    // Link node with neighbours:
+    node->next = list->head->next; // Link the previous 'first' node to the new one
+    node->prev = list->head; // Link new node's prev to head sentinel
+
+    // Link neighbours to the new node:
+    node->next->prev = node; // The previous 'first' node to the new one
+    list->head->next = node; // The new node is the first node
+    
+    list->length++;
+
+    return true;
+}
