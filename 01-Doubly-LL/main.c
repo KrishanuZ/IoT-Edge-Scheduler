@@ -7,6 +7,7 @@
 void node_creation_deletion() {
     
     // Creation:
+    printf("\n\nTesting Creation:\n");
     struct ProcessNode *newNode = createNode(1, 0, 3); // Id: 1, Arrival Time: 0, Burst Time: 3
     
     if (!newNode) {
@@ -18,6 +19,13 @@ void node_creation_deletion() {
     assert(newNode->pid == 1 && newNode->at == 0 && newNode->bt == 3 && "Metrics Assignment has failed.\n");
     printf("Metric Assignment: OK\n");
     printf("\nCreation: OK\n");
+
+    //Deletion:
+    printf("\n\nTesting Deletion:\n");
+    newNode = destroyNode(newNode);
+    assert(newNode->prev == NULL && newNode->next==NULL && "Error: Links are not NULL.\n");
+    assert(newNode==NULL && "Error: Node's memory has leaked.\n");
+    printf("\nDeletion: OK.\n");
 }
 
 int main() {
