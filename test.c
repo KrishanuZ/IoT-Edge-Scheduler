@@ -41,8 +41,8 @@ void list_creation() {
     }
     printf("Memory Allocation: OK.\n");
     
-    assert(list->head->next == list->tail && list->tail->prev == list->head && "Error: Sentinel Nodes are not linked in an emoty list.");
-    assert(list->head->prev == NULL && list->tail->next && "Error: Outer boundaries of sentinel nodes were not established.");
+    assert(list->head->next == list->tail && list->tail->prev == list->head && "Error: Sentinel Nodes are not linked in an empty list.");
+    assert(list->head->prev == NULL && list->tail->next == NULL && "Error: Outer boundaries of sentinel nodes were not established.");
 
     printf("Sentinel Nodes: OK.\n");
 }
