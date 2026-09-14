@@ -11,6 +11,11 @@ struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
     // Assign links to NULL
     newNode->prev = NULL;
     newNode->next = NULL;
+
+    newNode->pid = pid;
+    newNode->at = at;
+    newNode->bt = bt;
+    
     return newNode;
 }
 
