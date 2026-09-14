@@ -16,6 +16,6 @@ struct DoublyLinkedList {
 
 // Functions:
 struct DoublyLinkedList *createList();
-bool push_front(struct ProcessNode *);
+bool push_front(struct DoublyLinkedList*, struct ProcessNode *);
 
 #endif
