@@ -19,3 +19,9 @@ void node_creation_deletion() {
     printf("Metric Assignment: OK\n");
     printf("\nCreation: OK\n");
 }
+
+int main() {
+    node_creation_deletion();
+
+    return 0;
+}
