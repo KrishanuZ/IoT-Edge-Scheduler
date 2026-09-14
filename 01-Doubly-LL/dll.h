@@ -18,12 +18,14 @@ struct ProcessNode {
     pid_t pid; // Process ID
 
     // Time Metrics:
-    
+
     unsigned int at;    
     unsigned int bt;   
     unsigned int ct;    
     unsigned int tat;
     unsigned int wt;
+
+    unsigned int rt; // rt: Rmaining time; Added for SRTF algo
 };
 
 #endif
