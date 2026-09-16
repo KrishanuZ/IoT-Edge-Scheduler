@@ -104,3 +104,15 @@ struct DoublyLinkedList {
      * **Input Space**: `O(1)`
      * **Auxilary Space**: `O(1)`
      * **Output Space**: `O(1)`
+
+4. ```c
+    struct ProcessNode *pop_front(struct DoublyLinkedList*)
+   ```
+
+   * **Concept**: Removes a `ProcessNode` from the start of the list. Decrements length of the list by **1**.
+   * **Ourpur**: Returns `false` when **NULL** pointers are passed. Returns `true` upon successful removal.
+   * **Time Complexity**: `O(1)`
+   * **Space Complexity**:
+     * **Input Space**: `O(1)`
+     * **Auxilary Space**: `O(1)`
+     * **Output Space**: `O(1)`
