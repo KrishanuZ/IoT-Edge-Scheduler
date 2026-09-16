@@ -69,21 +69,22 @@ bool checkEmptyList(struct DoublyLinkedList *list) {
     return false;
 }
 
-struct ProcessNode *pop_front(struct DoublyLinkedList *list, struct ProcessNode *node) {
-    if (!list || !node) {
+struct ProcessNode *pop_front(struct DoublyLinkedList *list) {
+    if (!list || checkEmptyList(list)) {
         return NULL;
     }
+    
+    struct ProcessNode *popNode = list->head->next;
 
     // Update links of neighbors
-    list->head->next = node->next;
-    node->next->prev = list->head;
+    list->head->next = popNode->next;
+    popNode->next->prev = list->head;
 
     // De-link node with neihbors:
-    node->next= NULL;
-    node->prev = NULL;
+    popNode->next = NULL;
+    popNode->prev = NULL;
 
-    free(node);
-    node = NULL;
+    list->length --;
 
-    return NULL;
+    return popNode;
 }
