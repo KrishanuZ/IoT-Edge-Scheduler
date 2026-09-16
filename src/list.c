@@ -108,3 +108,21 @@ struct ProcessNode *pop_back(struct DoublyLinkedList *list) {
 
     return popNode;
 }
+
+struct DoublyLinkedList *destroyList(struct DoublyLinkedList* list) {
+    if (!list) {
+        return NULL;
+    }
+
+    while (!checkEmptyList(list)) {
+        struct ProcessNode *deleteNode = pop_front(list);
+        destroyNode(deleteNode);
+    }
+    
+    free(list->head);
+    free(list->tail);
+
+    free(list);
+
+    return NULL;
+}
