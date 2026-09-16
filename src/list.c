@@ -43,3 +43,21 @@ bool push_front(struct DoublyLinkedList *list, struct ProcessNode *node) {
 
     return true;
 }
+
+bool push_back(struct DoublyLinkedList *list, struct ProcessNode *node) {
+    if (!list || !node) {
+        return false;
+    }
+
+    // Link node with neighbors:
+    node->next = list->tail;
+    node->prev = list->tail->prev;
+
+    // Link neighbors with node:
+    node->prev->next = node;
+    list->tail->prev = node;
+
+    list->length++;
+
+    return true;
+}
