@@ -21,5 +21,6 @@ bool push_back(struct DoublyLinkedList*, struct ProcessNode*);
 bool checkEmptyList(struct DoublyLinkedList*); // Helper function
 struct ProcessNode *pop_front(struct DoublyLinkedList*);
 struct ProcessNode *pop_back(struct DoublyLinkedList*);
+struct DoublyLinkedList *destroyList(struct DoublyLinkedList*);
 
 #endif
