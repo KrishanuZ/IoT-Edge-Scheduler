@@ -31,11 +31,11 @@ bool push_front(struct DoublyLinkedList *list, struct ProcessNode *node) {
         return false;
     }
 
-    // Link node with neighbours:
+    // Link node with neighbors:
     node->next = list->head->next; // Link the previous 'first' node to the new one
     node->prev = list->head; // Link new node's prev to head sentinel
 
-    // Link neighbours to the new node:
+    // Link neighbors to the new node:
     node->next->prev = node; // The previous 'first' node to the new one
     list->head->next = node; // The new node is the first node
     
