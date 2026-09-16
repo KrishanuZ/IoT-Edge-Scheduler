@@ -67,11 +67,44 @@ void test_push_semantics() {
     printf("\n\nPush Semantics: OK.\n");
 }
 
+void test_pop_semantics() {
+    struct DoublyLinkedList *list = createList();
+
+    if (!list) {
+        printf("Memory allocation for list has failed.\n");
+        return;
+    }
+
+    struct ProcessNode *p1 = createNode(1, 0, 2);
+    struct ProcessNode *p2 = createNode(2, 1, 2);
+
+    if (!p1 || !p2) {
+        printf("Memory allocation for ProcessNode has failed.\n");
+    }
+
+    push_back(list, p1);
+    push_back(list, p2);
+
+    printf("\n\nTesting pop semantics:\n\n");
+
+    printf("\n\nTesting pop_back():\n\n");
+    struct ProcessNode *popped = pop_back(list); // p2 will be popped
+    assert(popped == p2 && "Error: pop_back() mechanics is faulty.");
+    printf("pop_back() mechanics: OK.\n");
+    assert(list->tail->prev == p1 && "Error: pop_back() didn't update links.");
+    printf("Link updation: OK.\n");
+    assert(list->length == 1 && "Error: pop_back() did not update the length of the list.\n");
+    printf("Length: OK.\n");
+
+    printf("\npop_back(): OK.\n");
+}
+
 int main() {
     // node_creation_deletion();
     // list_creation();
     // test_push_front();
-    test_push_semantics();
+    // test_push_semantics();
+    test_pop_semantics();
 
     return 0;
 }
