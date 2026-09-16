@@ -97,6 +97,19 @@ void test_pop_semantics() {
     printf("Length: OK.\n");
 
     printf("\npop_back(): OK.\n");
+
+    printf("\n\nTesting pop_front():\n");
+    popped = pop_front(list);
+    assert(popped == p1 && "Error: Mechanics is fauly.\n");
+    printf("Mechanics: OK.\n");
+    assert(list->head->next == list->tail && "Error: Link was not updated.");
+    printf("Link updation: OK.\n");
+    assert(list->length == 0 && "Error: Length was not updated.");
+    printf("Length: OK.\n");
+    
+    printf("\npop_front(): OK.\n");
+
+    printf("\n\nPop semantics: OK.\n");
 }
 
 int main() {
