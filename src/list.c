@@ -61,3 +61,32 @@ bool push_back(struct DoublyLinkedList *list, struct ProcessNode *node) {
 
     return true;
 }
+
+bool checkEmptyList(struct DoublyLinkedList *list) {
+    if (list->head->next == list->tail) {
+        return true;
+    }
+    return false;
+}
+
+struct ProcessNode *pop_front(struct DoublyLinkedList *list, struct ProcessNode *node) {
+    if (!list || !node) {
+        return NULL;
+    }
+
+    if (chec)
+    
+
+    // Update links of neighbors
+    list->head->next = node->next;
+    node->next->prev = list->head;
+
+    // De-link node with neihbors:
+    node->next= NULL;
+    node->prev = NULL;
+
+    free(node);
+    node = NULL;
+
+    return NULL;
+}
