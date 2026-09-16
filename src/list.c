@@ -137,5 +137,6 @@ void displayList(struct DoublyLinkedList *list) {
     printf("Process ID | Arrival Time | Burst Time | Completion Time | TurnAround Time | Waiting Time\n");
     while(currNode != list->tail) {
         printf("%-20d %-20d %-20d %-20d %-20d %-20d\n", currNode->pid, currNode->at, currNode->bt, currNode->ct, currNode->tat, currNode->wt);
+        currNode = currNode->next;
     }
 }
