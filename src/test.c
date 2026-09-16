@@ -38,8 +38,40 @@ void list_creation() {
     printf("Sentinel Nodes: OK.\n");
 }
 
+void test_push_semantics() {
+    struct DoublyLinkedList *list = createList();
+
+    if (!list) {
+        printf("Memory allocation for the list has failed.\n");
+    }
+
+    printf("\n\nTesting push_back():\n\n");
+
+    struct ProcessNode *p1 = createNode(0, 0, 1);
+    push_back(list, p1);
+    assert(list->tail->prev==p1 && p1->next == list->tail && "Error: push_back() didn't update tail sentinel node.");
+    printf("Links with Tail: OK.\n");
+    assert(list->length == 1 && "Error: push_back() did not update length of the list.");
+    printf("Length: OK\n");
+    printf("\npush_back(): OK\n");
+
+    printf("\n\nTesting push_front():\n\n");
+    struct ProcessNode *p2 = createNode(0, 1, 2);
+    push_front(list, p2);
+    assert(list->head->next == p2 && p2->prev == list->head && "Error: push_front() didn't update head sentinel node.");
+    printf("Links with Head: OK.\n");
+    assert(list->length == 2 && "Error: push_front() did not update length of the list.");
+    printf("Length: OK\n");
+    printf("\npush_front(): OK\n");
+
+    printf("\n\nPush Semantics: OK.\n");
+}
+
 int main() {
     // node_creation_deletion();
-    list_creation();
+    // list_creation();
+    // test_push_front();
+    test_push_semantics();
+
     return 0;
 }
