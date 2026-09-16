@@ -18,5 +18,6 @@ struct DoublyLinkedList {
 struct DoublyLinkedList *createList();
 bool push_front(struct DoublyLinkedList*, struct ProcessNode *);
 bool push_back(struct DoublyLinkedList*, struct ProcessNode *);
+struct ProcessNode *pop_front(struct DoublyLinkedList *list, struct ProcessNode *node);
 
 #endif
