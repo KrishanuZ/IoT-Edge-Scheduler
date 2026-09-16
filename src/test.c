@@ -89,18 +89,18 @@ void test_pop_semantics() {
 
     printf("\n\nTesting pop_back():\n\n");
     struct ProcessNode *popped = pop_back(list); // p2 will be popped
-    assert(popped == p2 && "Error: pop_back() mechanics is faulty.");
+    assert(popped == p2 && "Error: Mechanics is faulty.");
     printf("pop_back() mechanics: OK.\n");
-    assert(list->tail->prev == p1 && "Error: pop_back() didn't update links.");
+    assert(list->tail->prev == p1 && "Error: Link was not updated.");
     printf("Link updation: OK.\n");
-    assert(list->length == 1 && "Error: pop_back() did not update the length of the list.\n");
+    assert(list->length == 1 && "Error: Length was not updated.");
     printf("Length: OK.\n");
 
     printf("\npop_back(): OK.\n");
 
     printf("\n\nTesting pop_front():\n");
     popped = pop_front(list);
-    assert(popped == p1 && "Error: Mechanics is fauly.\n");
+    assert(popped == p1 && "Error: Mechanics is faulty.");
     printf("Mechanics: OK.\n");
     assert(list->head->next == list->tail && "Error: Link was not updated.");
     printf("Link updation: OK.\n");
