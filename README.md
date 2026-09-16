@@ -85,7 +85,7 @@ struct DoublyLinkedList {
     bool push_front(struct DoublyLinkedList*, struct ProcessNode*)
    ```
 
-    * **Concept**: Adds a `ProcessNode` at the start of the list, increments length of the list by **1**.
+    * **Concept**: Adds a `ProcessNode` at the start of the list. Increments length of the list by **1**.
     * **Output**: Returns `false` when **NULL** pointers are passed. Returns `true` upon successful insertion.
     * **Time Complexity**: `O(1)`
     * **Space Complexity**:
@@ -97,7 +97,7 @@ struct DoublyLinkedList {
     bool push_back(struct DoublyLinkedList*, struct ProcessNode*)
    ```
 
-   * **Concept**: Adds a `ProcessNode` at the end of the list, increments length of the list by **1**.
+   * **Concept**: Adds a `ProcessNode` at the end of the list. Increments length of the list by **1**.
    * **Output**: Returns `false` when **NULL** pointers are passed. Returns `true` upon successful insertion.
    * **Time Complexity**: `O(1)`
    * **Space Complexity**:
