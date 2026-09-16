@@ -128,3 +128,15 @@ struct DoublyLinkedList {
      * **Input Space**: `O(1)`
      * **Auxilary Space**: `O(1)`
      * **Output Space**: `O(1)`
+
+6. ```c
+    struct DoublyLinkedList *destroyList(struct DoublyLinkedList*)
+   ```
+
+   * **Concept**: Traverses and de-allocates all the `ProcessNode` sequentially.
+   * **Output**: Returns a **NULL** pointer.
+   * **Time Complexity**: `O(N)`
+   * **Space Complexity**:
+     * **Input Space**: `O(1)`
+     * **Auxilary Space**: `O(1)`
+     * **Output Space**: `O(1)`
