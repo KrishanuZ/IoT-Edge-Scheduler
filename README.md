@@ -140,3 +140,15 @@ struct DoublyLinkedList {
      * **Input Space**: `O(1)`
      * **Auxilary Space**: `O(1)`
      * **Output Space**: `O(1)`
+
+7. ```c
+    struct DoublyLinkedList *displayList(struct DoublyLinked*)
+   ```
+
+   * **Concept**: Traverses and displays `ProcessNode`.
+   * **Output**: Time metrics of each `ProcessNode`.
+   * **Time Complexity**: `O(N)`
+   * **Space Complexity**:
+     * **Input Space**: `O(1)`
+     * **Auxilary Space**: `O(1)`
+     * **Output Space**: `O(1)`
