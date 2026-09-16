@@ -112,12 +112,41 @@ void test_pop_semantics() {
     printf("\n\nPop semantics: OK.\n");
 }
 
+void test_destroy() {
+    struct DoublyLinkedList *list = createList();
+    if (!list) {
+        printf("Memory allocation for list has failed.\n");
+        return;
+    }
+
+    struct ProcessNode *p1 = createNode(1, 0, 1);
+    struct ProcessNode *p2 = createNode(2, 1, 2);
+    struct ProcessNode *p3 = createNode(3, 2, 3);
+
+    if (!p1 || !p2 || !p3) {
+        printf("Memory allocation for ProcessNode has failed.\n");
+        return;
+    }
+    push_back(list, p1);
+    push_back(list, p2);
+    push_back(list, p3);
+
+    printf("\n\nTesting destroyList():\n");
+
+    list = destroyList(list);
+
+    assert(list == NULL && "Error: List length was not updated.");
+    printf("Link Updation: OK.\n");
+
+    printf("\n\ndestroyList(): OK.\n");
+}
+
 int main() {
     // node_creation_deletion();
     // list_creation();
     // test_push_front();
     // test_push_semantics();
-    test_pop_semantics();
-
+    // test_pop_semantics();
+    test_destroy();
     return 0;
 }
