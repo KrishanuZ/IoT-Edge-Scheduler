@@ -88,3 +88,23 @@ struct ProcessNode *pop_front(struct DoublyLinkedList *list) {
 
     return popNode;
 }
+
+struct ProcessNode *pop_back(struct DoublyLinkedList *list) {
+    if (!list || checkEmptyList(list)) {
+        return NULL;
+    }
+
+    struct ProcessNode *popNode = list->tail->prev;
+
+    // Update links of neighbors:
+    list->tail->prev = popNode->prev;
+    popNode->prev->next = list->tail;
+
+    // De-link node with neighbors:
+    popNode->next = NULL;
+    popNode->prev = NULL;
+
+    list->length--;
+
+    return popNode;
+}
