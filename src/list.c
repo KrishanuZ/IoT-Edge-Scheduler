@@ -80,7 +80,7 @@ struct ProcessNode *pop_front(struct DoublyLinkedList *list) {
     list->head->next = popNode->next;
     popNode->next->prev = list->head;
 
-    // De-link node with neihbors:
+    // De-link node with neighbors:
     popNode->next = NULL;
     popNode->prev = NULL;
 
