@@ -141,12 +141,30 @@ void test_destroy() {
     printf("\n\ndestroyList(): OK.\n");
 }
 
+void test_display() {
+    struct DoublyLinkedList *list = createList();
+
+    if (!list) {
+        printf("Memory allocation for list has failed.\n");
+        return;
+    }
+
+    struct ProcessNode *process[5];
+    for(int i = 0; i < 5; i++){
+        process[i] = createNode(i + 1, i, i + 1);
+
+        push_back(list, process[i]);
+    }
+    displayList(list);
+}
+
 int main() {
     // node_creation_deletion();
     // list_creation();
     // test_push_front();
     // test_push_semantics();
     // test_pop_semantics();
-    test_destroy();
+    // test_destroy();
+    test_display();
     return 0;
 }
