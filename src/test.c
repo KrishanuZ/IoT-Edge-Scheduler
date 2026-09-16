@@ -38,8 +38,14 @@ void list_creation() {
     printf("Sentinel Nodes: OK.\n");
 }
 
+void test_push_front() {
+    struct DoublyLinkedList *list = createList();
+}
+
 int main() {
     // node_creation_deletion();
-    list_creation();
+    // list_creation();
+    test_push_front();
+
     return 0;
 }
