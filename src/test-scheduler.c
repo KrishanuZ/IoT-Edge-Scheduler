@@ -32,3 +32,16 @@ void test_fcfs (struct DoublyLinkedList *readyQueue) {
 
     displayList(readyQueue);
 }
+
+int main() {
+    struct DoublyLinkedList *readyQueue = initialize_process();
+
+    if(!readyQueue || checkEmptyList(readyQueue)) {
+        return;
+    }
+
+    test_fcfs(readyQueue);
+    readyQueue = destroyList(readyQueue);
+    
+    return 0;
+}
