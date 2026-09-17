@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 struct DoublyLinkedList *createList() {
     struct DoublyLinkedList *list = (struct DoublyLinkedList*)malloc(sizeof(struct DoublyLinkedList));
@@ -142,11 +144,38 @@ void displayList(struct DoublyLinkedList *list) {
     }
 }
 
+void swapProcess(struct ProcessNode *a, struct ProcessNode *b) {
+    // Storing 'a' in temp
+    pid_t temp_id = a->pid;
+    unsigned int temp_at = a->at;
+    unsigned int temp_bt = a->bt;
+    unsigned int temp_ct = a->ct;
+    unsigned int temp_rt = a->rt;
+    unsigned int temp_tat = a->tat;
+    unsigned int temp_wt = a->wt;
+
+    a->pid = b->pid;
+    a->at = b->at;
+    a->bt = b->bt;
+    a->ct = b->ct;
+    a->rt = b->rt;
+    a->tat = b->tat;
+    a->wt = b->wt;
+
+    b->pid = temp_id;
+    b->at = temp_at;
+    b->bt = temp_bt;
+    b->ct = temp_ct;
+    b->rt = temp_rt;
+    b->tat = temp_tat;
+    b->wt = temp_wt;
+}
+
 void sortList(struct DoublyLinkedList *list) {
     if(!list || checkEmptyList(list)) {
         return;
     }
     // Insertion Sort:
 
-    
+
 }
