@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <assert.h>
 
-
 void node_creation_deletion() {
     // (Reconstructed node creation since it was cut off above line 21)
     struct ProcessNode *newNode = createNode(1, 0, 5); 
