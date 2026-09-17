@@ -172,9 +172,21 @@ void swapProcess(struct ProcessNode *a, struct ProcessNode *b) {
 }
 
 void sortList(struct DoublyLinkedList *list) {
-    if(!list || checkEmptyList(list) || list->head->next == list->tail->prev) {
+    if (!list || checkEmptyList(list) || list->head->next == list->tail->prev) {
         // No sorting when: pointer = NULL, list = empty, list has only one node 
         return;
     }
     // Insertion Sort:
+
+    struct ProcessNode *currNode = list->head->next->next; // Starting from second node
+
+    while (currNode != list->tail) {
+        struct ProcessNode *j = currNode; // Storing the current Process
+
+        while (j->prev != list->head && j->at < j->prev->at) {
+            swapProcess(j, j->prev);
+        }
+        j = j->prev;
+    }
+    currNode = currNode->next; // Onto the next Process
 }
