@@ -141,3 +141,12 @@ void displayList(struct DoublyLinkedList *list) {
         currNode = currNode->next;
     }
 }
+
+void sortList(struct DoublyLinkedList *list) {
+    if(!list || checkEmptyList(list)) {
+        return;
+    }
+    // Insertion Sort:
+
+    
+}
