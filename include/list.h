@@ -23,5 +23,6 @@ struct ProcessNode *pop_front(struct DoublyLinkedList*);
 struct ProcessNode *pop_back(struct DoublyLinkedList*);
 struct DoublyLinkedList *destroyList(struct DoublyLinkedList*);
 void displayList(struct DoublyLinkedList*);
+void sortList(struct DoublyLinkedList*);
 
 #endif

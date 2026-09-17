@@ -25,3 +25,13 @@ void fcfs(struct DoublyLinkedList *readyQueue) {
         currProcess = currProcess->next;
     }
 }
+
+void sjf(struct DoublyLinkedList *readyQueue) {
+    if (!readyQueue || checkEmptyList(readyQueue)) {
+        return;
+    }
+
+    unsigned int current_tick = 0;
+
+    struct ProcessNode *currProcess = readyQueue->head->next;
+}
