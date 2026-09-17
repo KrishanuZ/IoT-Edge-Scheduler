@@ -10,6 +10,10 @@ void fcfs(struct DoublyLinkedList *readyQueue) {
     while (!checkEmptyList(readyQueue)) {
         struct ProcessNode *currProcess = pop_front(readyQueue);
 
+        if(current_tick < currProcess->at) {
+            current_tick += currProcess->at;
+        }
+
         current_tick = current_tick + currProcess->bt; // Complete the Process
         currProcess->ct = current_tick; // Update current tick
 
