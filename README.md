@@ -142,7 +142,7 @@ struct DoublyLinkedList {
      * **Output Space**: `O(1)`
 
 7. ```c
-    struct DoublyLinkedList *displayList(struct DoublyLinked*)
+    struct DoublyLinkedList *displayList(struct DoublyLinkedList*)
    ```
 
    * **Concept**: Traverses and displays `ProcessNode`.
