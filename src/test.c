@@ -18,6 +18,8 @@ void node_creation_deletion() {
     newNode = destroyNode(newNode);
     assert(newNode==NULL && "Error: Node's memory has leaked.");
     printf("\nDeletion: OK.\n");
+
+    newNode = destroyNode(newNode);
 }
 
 void list_creation() {
@@ -36,6 +38,8 @@ void list_creation() {
     assert(list->head->prev == NULL && list->tail->next == NULL && "Error: Outer boundaries of sentinel nodes were not established.");
     
     printf("Sentinel Nodes: OK.\n");
+
+    list = destroyList(list);
 }
 
 void test_push_semantics() {
@@ -65,6 +69,8 @@ void test_push_semantics() {
     printf("\npush_front(): OK\n");
 
     printf("\n\nPush Semantics: OK.\n");
+
+    list = destroyList(list);
 }
 
 void test_pop_semantics() {
@@ -110,6 +116,8 @@ void test_pop_semantics() {
     printf("\npop_front(): OK.\n");
 
     printf("\n\nPop semantics: OK.\n");
+
+    list = destroyList(list);
 }
 
 void test_destroy() {
@@ -156,6 +164,8 @@ void test_display() {
         push_back(list, process[i]);
     }
     displayList(list);
+
+    list = destroyList(list);
 }
 
 int main() {
