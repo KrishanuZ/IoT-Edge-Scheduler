@@ -9,7 +9,7 @@ void fcfs(struct DoublyLinkedList *readyQueue) {
 
     struct ProcessNode *currProcess = readyQueue->head->next;
 
-    while (!checkEmptyList(readyQueue)) {
+    while (currProcess != readyQueue->tail) {
         if(current_tick < currProcess->at) {
             current_tick += currProcess->at;
         }
