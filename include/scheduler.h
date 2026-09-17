@@ -4,7 +4,7 @@
 #include "node.h"
 #include "list.h"
 
-void fcfs(struct DoublyLinkedList *list);
-void sjf(struct DoublyLinkedList *list);
+void fcfs(struct DoublyLinkedList*);
+void sjf(struct DoublyLinkedList*);
 
 #endif
