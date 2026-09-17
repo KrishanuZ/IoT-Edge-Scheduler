@@ -171,7 +171,7 @@ void swapProcess(struct ProcessNode *a, struct ProcessNode *b) {
     b->wt = temp_wt;
 }
 
-void sortList(struct DoublyLinkedList *list) {
+void sortByArrival(struct DoublyLinkedList *list) {
     if (!list || checkEmptyList(list) || list->head->next == list->tail->prev) {
         // No sorting when: pointer = NULL, list = empty, list has only one node 
         return;

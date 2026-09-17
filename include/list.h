@@ -24,6 +24,6 @@ struct ProcessNode *pop_back(struct DoublyLinkedList*);
 struct DoublyLinkedList *destroyList(struct DoublyLinkedList*);
 void displayList(struct DoublyLinkedList*);
 void swapProcess(struct ProcessNode*, struct ProcessNode*); // Helper function
-void sortList(struct DoublyLinkedList*);
+void sortByArrival(struct DoublyLinkedList*);
 
 #endif
