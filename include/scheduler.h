@@ -5,5 +5,6 @@
 #include "list.h"
 
 void fcfs(struct DoublyLinkedList *list);
+void sjf(struct DoublyLinkedList *list);
 
 #endif
