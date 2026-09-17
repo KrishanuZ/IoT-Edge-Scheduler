@@ -1,5 +1,7 @@
 #include "scheduler.h"
 
+#include <stdio.h>
+
 struct DoublyLinkedList *initialize_process() {
     struct DoublyLinkedList *readyQueue = createList();
 
