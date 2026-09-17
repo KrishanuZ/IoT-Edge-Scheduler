@@ -18,6 +18,8 @@ void node_creation_deletion() {
     newNode = destroyNode(newNode);
     assert(newNode==NULL && "Error: Node's memory has leaked.");
     printf("\nDeletion: OK.\n");
+
+    newNode = destroyNode(newNode);
 }
 
 void list_creation() {
