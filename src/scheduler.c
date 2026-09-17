@@ -20,5 +20,8 @@ void fcfs(struct DoublyLinkedList *readyQueue) {
         // Update time netrics
         currProcess->tat = currProcess->ct - currProcess->at; 
         currProcess->wt = currProcess->tat - currProcess->bt;
+
+        // Traverse to next node
+        currProcess = currProcess->next;
     }
 }
