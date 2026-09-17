@@ -37,7 +37,7 @@ int main() {
     struct DoublyLinkedList *readyQueue = initialize_process();
 
     if(!readyQueue || checkEmptyList(readyQueue)) {
-        return;
+        return 1;
     }
 
     test_fcfs(readyQueue);
