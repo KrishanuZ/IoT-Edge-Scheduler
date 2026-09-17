@@ -22,3 +22,13 @@ struct DoublyLinkedList *initialize_process() {
 
     return readyQueue;
 }
+
+void test_fcfs (struct DoublyLinkedList *readyQueue) {
+    if(!readyQueue || checkEmptyList(readyQueue)) {
+        return;
+    }
+
+    fcfs(readyQueue);
+
+    displayList(readyQueue);
+}
