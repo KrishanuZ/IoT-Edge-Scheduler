@@ -35,7 +35,7 @@ struct ProcessNode {
 
     * **Concept**: Allocates memory to a process node using `malloc()`.
     * **Output**: Returns a pointer to a struct of type `ProcessNode`.
-    * **Time Complexity**: `O(1)`.
+    * **Time Complexity**: `O(1)`
     * **Space Complexity**:
         * **Input Space**: `O(1)`
         * **Auxiliary Space**: `O(1)`
@@ -47,7 +47,7 @@ struct ProcessNode {
 
     * **Concept**: Deallocates the memory of a process node using `free()`.
     * **Output**: Explicitly returns `NULL` pointer.
-    * **Time Complexity**: `O(1)`.
+    * **Time Complexity**: `O(1)`
     * **Space Complexity**:
         * **Input Space**: `O(1)`
         * **Auxiliary Space**: `O(1)`
