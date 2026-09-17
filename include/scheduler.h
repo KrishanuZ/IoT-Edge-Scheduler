@@ -4,4 +4,6 @@
 #include "node.h"
 #include "list.h"
 
+void fcfs(struct DoublyLinkedList *list);
+
 #endif
