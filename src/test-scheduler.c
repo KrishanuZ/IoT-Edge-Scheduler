@@ -31,6 +31,19 @@ void test_fcfs (struct DoublyLinkedList *readyQueue) {
 }
 
 void test_sort(struct DoublyLinkedList *readyQueue) {
+
+    struct ProcessNode *p1 = createNode(1, 0, 1);
+    struct ProcessNode *p2 = createNode(2, 2, 5);
+    struct ProcessNode *p3 = createNode(3, 5, 1);
+    struct ProcessNode *p4 = createNode(4, 1, 2);
+    struct ProcessNode *p5 = createNode(5, 4, 7);
+    struct ProcessNode *p6 = createNode(6, 2, 1);
+
+    if (!p1 || !p2 || !p3 || !p4 || !p5 || !p6) {
+        printf("Memory Allocation for Process has failed.\n");
+        return;
+    }
+
     printf("Sorting By Arrival Time:\n");
     sortByArrival(readyQueue);
     displayList(readyQueue);
