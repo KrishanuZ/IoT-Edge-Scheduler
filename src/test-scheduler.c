@@ -30,7 +30,14 @@ void test_fcfs (struct DoublyLinkedList *readyQueue) {
     displayList(readyQueue);
 }
 
-void test_sort(struct DoublyLinkedList *readyQueue) {
+void test_sort() {
+    struct DoublyLinkedList *readyQueue = initialize_process();
+
+    if(!readyQueue || checkEmptyList(readyQueue)) {
+        return 1;
+    }
+
+    test_sort(readyQueue);
 
     struct ProcessNode *p1 = createNode(1, 0, 1);
     struct ProcessNode *p2 = createNode(2, 2, 5);
@@ -58,19 +65,22 @@ void test_sort(struct DoublyLinkedList *readyQueue) {
     printf("\nSorting By Burst Time:\n");
     sortByBurst(readyQueue);
     displayList(readyQueue);
+
+    readyQueue = destroyList(readyQueue);
 }
 
 int main() {
-    struct DoublyLinkedList *readyQueue = initialize_process();
+    /* struct DoublyLinkedList *readyQueue = initialize_process();
 
     if(!readyQueue || checkEmptyList(readyQueue)) {
         return 1;
     }
+    */
 
     // test_fcfs(readyQueue);
-    test_sort(readyQueue);
+    test_sort();
 
-    readyQueue = destroyList(readyQueue);
+    // readyQueue = destroyList(readyQueue);
     
     return 0;
 }
