@@ -190,3 +190,23 @@ void sortByArrival(struct DoublyLinkedList *list) {
     }
     currNode = currNode->next; // Onto the next Process
 }
+
+void sortByBurst(struct DoublyLinkedList *list) {
+    if (!list || checkEmptyList(list) || list->head->next == list->tail->prev) {
+        // No sorting when: pointer = NULL, list = empty, list has only one node
+        return;
+    }
+    
+    // Insertion Sort:
+    struct ProcessNode *currNode = list->head->next->next; // From 2nd node
+
+    while (currNode != list->tail) {
+        struct ProcessNode *j = currNode;
+
+        while (j->prev != list->head && j->bt < j->prev->bt) { // Checking by 'bt`
+            swapProcess(j, j->prev);
+            j = j->prev;
+        }
+        currNode = currNode->next;
+    }
+}
