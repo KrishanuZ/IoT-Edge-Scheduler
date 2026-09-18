@@ -15,7 +15,7 @@ struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
     newNode->pid = pid;
     newNode->at = at;
     newNode->bt = bt;
-    newNode->wt = newNode->bt; // Since the execution hasn't started yet
+    newNode->rt = newNode->bt; // Since the execution hasn't started yet
 
     // Assign 0 to avoid generating garbage values
     newNode->ct = 0;
