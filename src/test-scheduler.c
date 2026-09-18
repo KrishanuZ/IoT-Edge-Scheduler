@@ -39,6 +39,13 @@ void test_sort(struct DoublyLinkedList *readyQueue) {
     struct ProcessNode *p5 = createNode(5, 4, 7);
     struct ProcessNode *p6 = createNode(6, 2, 1);
 
+    pop_back(p1);
+    pop_back(p2);
+    pop_back(p3);
+    pop_back(p4);
+    pop_back(p5);
+    pop_back(p6);
+
     if (!p1 || !p2 || !p3 || !p4 || !p5 || !p6) {
         printf("Memory Allocation for Process has failed.\n");
         return;
