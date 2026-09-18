@@ -34,7 +34,7 @@ void test_sort() {
     struct DoublyLinkedList *readyQueue = initialize_process();
 
     if(!readyQueue || checkEmptyList(readyQueue)) {
-        return 1;
+        return;
     }
 
     struct ProcessNode *p1 = createNode(1, 0, 1);
