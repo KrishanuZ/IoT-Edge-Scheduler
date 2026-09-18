@@ -154,7 +154,7 @@ struct DoublyLinkedList {
      * **Output Space**: `O(1)`
 
 8. ```c
-    void sortList(struct DoublyLinkedList*)
+    void sortByArrival(struct DoublyLinkedList*)
     ```
 
     * **Concept**: Sorts the list with respect to **Arrival Time** using **Insertion Sort** algorithm.
