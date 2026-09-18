@@ -37,8 +37,6 @@ void test_sort() {
         return 1;
     }
 
-    test_sort(readyQueue);
-
     struct ProcessNode *p1 = createNode(1, 0, 1);
     struct ProcessNode *p2 = createNode(2, 2, 5);
     struct ProcessNode *p3 = createNode(3, 5, 1);
