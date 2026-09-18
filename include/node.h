@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <stdbool.h>
 
 /*
 Time Metrics:
@@ -26,6 +27,8 @@ struct ProcessNode {
 
     unsigned int rt; // rt: Rmaining time; Added for SRTF algo
 
+    bool is_completed;
+    
     struct ProcessNode *prev;
     struct ProcessNode *next;
 };

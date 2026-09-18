@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 struct DoublyLinkedList *createList() {
     struct DoublyLinkedList *list = (struct DoublyLinkedList*)malloc(sizeof(struct DoublyLinkedList));
@@ -138,6 +140,73 @@ void displayList(struct DoublyLinkedList *list) {
     printf("Process ID | Arrival Time | Burst Time | Completion Time | TurnAround Time | Waiting Time\n");
     while(currNode != list->tail) {
         printf("%-10d | %-12d | %-10d | %-15d | %-15d | %-12d\n", currNode->pid, currNode->at, currNode->bt, currNode->ct, currNode->tat, currNode->wt);
+        currNode = currNode->next;
+    }
+}
+
+void swapProcess(struct ProcessNode *a, struct ProcessNode *b) {
+    // Storing 'a' in temp
+    pid_t temp_id = a->pid;
+    unsigned int temp_at = a->at;
+    unsigned int temp_bt = a->bt;
+    unsigned int temp_ct = a->ct;
+    unsigned int temp_rt = a->rt;
+    unsigned int temp_tat = a->tat;
+    unsigned int temp_wt = a->wt;
+
+    a->pid = b->pid;
+    a->at = b->at;
+    a->bt = b->bt;
+    a->ct = b->ct;
+    a->rt = b->rt;
+    a->tat = b->tat;
+    a->wt = b->wt;
+
+    b->pid = temp_id;
+    b->at = temp_at;
+    b->bt = temp_bt;
+    b->ct = temp_ct;
+    b->rt = temp_rt;
+    b->tat = temp_tat;
+    b->wt = temp_wt;
+}
+
+void sortByArrival(struct DoublyLinkedList *list) {
+    if (!list || checkEmptyList(list) || list->head->next == list->tail->prev) {
+        // No sorting when: pointer = NULL, list = empty, list has only one node 
+        return;
+    }
+    // Insertion Sort:
+
+    struct ProcessNode *currNode = list->head->next->next; // Starting from second node
+
+    while (currNode != list->tail) {
+        struct ProcessNode *j = currNode; // Storing the current Process
+
+        while (j->prev != list->head && j->at < j->prev->at) {
+            swapProcess(j, j->prev);
+        }
+        j = j->prev;
+    }
+    currNode = currNode->next; // Onto the next Process
+}
+
+void sortByBurst(struct DoublyLinkedList *list) {
+    if (!list || checkEmptyList(list) || list->head->next == list->tail->prev) {
+        // No sorting when: pointer = NULL, list = empty, list has only one node
+        return;
+    }
+    
+    // Insertion Sort:
+    struct ProcessNode *currNode = list->head->next->next; // From 2nd node
+
+    while (currNode != list->tail) {
+        struct ProcessNode *j = currNode;
+
+        while (j->prev != list->head && j->bt < j->prev->bt) { // Checking by 'bt`
+            swapProcess(j, j->prev);
+            j = j->prev;
+        }
         currNode = currNode->next;
     }
 }

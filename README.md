@@ -35,7 +35,7 @@ struct ProcessNode {
 
     * **Concept**: Allocates memory to a process node using `malloc()`.
     * **Output**: Returns a pointer to a struct of type `ProcessNode`.
-    * **Time Complexity**: `O(1)`.
+    * **Time Complexity**: `O(1)`
     * **Space Complexity**:
         * **Input Space**: `O(1)`
         * **Auxiliary Space**: `O(1)`
@@ -47,7 +47,7 @@ struct ProcessNode {
 
     * **Concept**: Deallocates the memory of a process node using `free()`.
     * **Output**: Explicitly returns `NULL` pointer.
-    * **Time Complexity**: `O(1)`.
+    * **Time Complexity**: `O(1)`
     * **Space Complexity**:
         * **Input Space**: `O(1)`
         * **Auxiliary Space**: `O(1)`
@@ -142,7 +142,7 @@ struct DoublyLinkedList {
      * **Output Space**: `O(1)`
 
 7. ```c
-    struct DoublyLinkedList *displayList(struct DoublyLinked*)
+    struct DoublyLinkedList *displayList(struct DoublyLinkedList*)
    ```
 
    * **Concept**: Traverses and displays `ProcessNode`.
@@ -152,3 +152,18 @@ struct DoublyLinkedList {
      * **Input Space**: `O(1)`
      * **Auxilary Space**: `O(1)`
      * **Output Space**: `O(1)`
+
+8. ```c
+    void sortList(struct DoublyLinkedList*)
+    ```
+
+    * **Concept**: Sorts the list with respect to **Arrival Time** using **Insertion Sort** algorithm.
+    * **Output**: Arranges the list in increasing order of **Arrival Time**.
+    * **Time Complexity**:
+      * **Best Case**: `O(N)`
+      * **Average Case**: `O(N^2)`
+      * **Worst Case**: `O(N^2)`
+    * **Space Complexity**:
+      * **Input Space**: `O(1)`
+      * **Auxilary Space**: `O(1)`
+      * **Output Space**: `O(1)`
