@@ -51,12 +51,15 @@ void test_sort() {
     push_back(readyQueue, p5);
     push_back(readyQueue, p6);
 
+    printf("\nProcesses inserted as per original sequence:\n");
+    displayList(readyQueue);
+
     if (!p1 || !p2 || !p3 || !p4 || !p5 || !p6) {
         printf("Memory Allocation for Process has failed.\n");
         return;
     }
 
-    printf("Sorting By Arrival Time:\n");
+    printf("\nSorting By Arrival Time:\n");
     sortByArrival(readyQueue);
     displayList(readyQueue);
 
