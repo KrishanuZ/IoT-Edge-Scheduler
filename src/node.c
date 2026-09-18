@@ -22,6 +22,8 @@ struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
     newNode->tat=0;
     newNode->wt=0;
 
+    newNode->is_completed = false;
+
     return newNode;
 }
 
