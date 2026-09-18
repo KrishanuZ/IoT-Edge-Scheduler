@@ -46,12 +46,12 @@ void test_sort() {
     struct ProcessNode *p5 = createNode(5, 4, 7);
     struct ProcessNode *p6 = createNode(6, 2, 1);
 
-    pop_back(p1);
-    pop_back(p2);
-    pop_back(p3);
-    pop_back(p4);
-    pop_back(p5);
-    pop_back(p6);
+    push_back(readyQueue, p1);
+    push_back(readyQueue, p2);
+    push_back(readyQueue, p3);
+    push_back(readyQueue, p4);
+    push_back(readyQueue, p5);
+    push_back(readyQueue, p6);
 
     if (!p1 || !p2 || !p3 || !p4 || !p5 || !p6) {
         printf("Memory Allocation for Process has failed.\n");
