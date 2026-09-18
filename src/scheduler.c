@@ -31,7 +31,12 @@ void sjf(struct DoublyLinkedList *readyQueue) {
         return;
     }
 
+    // Assumption: Processes are already sorted according to Arrival Time
     unsigned int current_tick = 0;
 
-    struct ProcessNode *currProcess = readyQueue->head->next;
+    if(current_tick < readyQueue->head->next->at) { // Skip
+        current_tick += readyQueue->head->next->at;
+    }
+
+    
 }
