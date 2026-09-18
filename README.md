@@ -167,3 +167,18 @@ struct DoublyLinkedList {
       * **Input Space**: `O(1)`
       * **Auxilary Space**: `O(1)`
       * **Output Space**: `O(1)`
+
+9. ```c
+    void sortByBurst(struct DoublyLinkedList*)
+    ```
+
+    * **Concept**: Sorts the list with respect to **Burst Time** using **Insertion Sort** algorithm.
+    * **Output**: Arranges the list in increasing order of **Burst Time**.
+    * **Time Complexity**:
+      * **Best Case**: `O(N)`
+      * **Average Case**: `O(N^2)`
+      * **Worst Case**: `O(N^2)`
+    * **Space Complexity**:
+      * **Input Space**: `O(1)`
+      * **Auxilary Space**: `O(1)`
+      * **Output Space**: `O(1)`
