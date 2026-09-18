@@ -176,8 +176,8 @@ void sortByArrival(struct DoublyLinkedList *list) {
         // No sorting when: pointer = NULL, list = empty, list has only one node 
         return;
     }
-    // Insertion Sort:
 
+    // Insertion Sort:
     struct ProcessNode *currNode = list->head->next->next; // Starting from second node
 
     while (currNode != list->tail) {
@@ -185,10 +185,10 @@ void sortByArrival(struct DoublyLinkedList *list) {
 
         while (j->prev != list->head && j->at < j->prev->at) {
             swapProcess(j, j->prev);
+            j = j->prev;
         }
-        j = j->prev;
+        currNode = currNode->next; // Onto the next Process
     }
-    currNode = currNode->next; // Onto the next Process
 }
 
 void sortByBurst(struct DoublyLinkedList *list) {
