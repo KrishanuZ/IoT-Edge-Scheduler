@@ -4,7 +4,7 @@
 
 ```c
 struct ProcessNode {
-    pid_t pid;
+    pid_t tid;
     char taskName[32]; 
     unsigned int at;    
     unsigned int bt;   
@@ -22,7 +22,8 @@ struct ProcessNode {
 
 | Variable | Metric | Description |
 | :--- | :--- | :--- |
-| `pid` | Process ID | Unique ID assigned to a process. |
+| `tid` | Task ID | Unique ID assigned to a task. |
+| `taskName[32]` | Task Name | Stores the name of the task assigned. |
 | `at` | Arrival Time | The exact CPU tick when the process enters. |
 | `bt` | Burst Time | The number of CPU ticks requested by the process to complete its execution. |
 | `ct` | Completion Time | The exact CPU tick when the process exits the scheduler. |
@@ -33,7 +34,7 @@ struct ProcessNode {
 ### Core Functions
 
 1. ```c
-    struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt)
+    struct ProcessNode *createNode(pid_t tid, unsigned int at, unsigned int bt)
    ```
 
     * **Concept**: Allocates memory to a process node using `malloc()`.

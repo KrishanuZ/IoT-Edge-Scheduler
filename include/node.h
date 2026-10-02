@@ -16,7 +16,7 @@ tat: TurnAround Time
 wt: Waiting Time
 */
 struct SensorTask {
-    pid_t pid; // Process ID
+    pid_t tid; // Task ID
     char taskName[32]; // Storing task's name, prevent mem leaks
 
     // Time Metrics:

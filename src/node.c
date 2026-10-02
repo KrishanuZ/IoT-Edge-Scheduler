@@ -2,7 +2,7 @@
 #include <string.h>
 #include "node.h"
 
-struct SensorTask *createTask(pid_t pid, const char *taskName, unsigned int at, unsigned int bt) {
+struct SensorTask *createTask(pid_t tid, const char *taskName, unsigned int at, unsigned int bt) {
     struct SensorTask *newNode = (struct SensorTask *)malloc(sizeof(struct SensorTask));
 
     if (!newNode) {
@@ -10,14 +10,14 @@ struct SensorTask *createTask(pid_t pid, const char *taskName, unsigned int at, 
     }
 
     // TaskName
-    strncpy(newNode->taskName, taskName, 31); //Max of 31 charaxcters
+    strncpy(newNode->taskName, taskName, 31); // Max of 31 charaxcters, since last character = \0
     newNode->taskName[31] = '\0'; // Add null char for termination
 
     // Assign links to NULL
     newNode->prev = NULL;
     newNode->next = NULL;
 
-    newNode->pid = pid;
+    newNode->tid = tid;
     newNode->at = at;
     newNode->bt = bt;
     newNode->rt = newNode->bt; // Since the execution hasn't started yet
