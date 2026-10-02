@@ -6,7 +6,7 @@
 
 void node_creation_deletion() {
     // (Reconstructed node creation since it was cut off above line 21)
-    struct ProcessNode *newNode = createNode(1, 0, 5); 
+    struct SensorTask *newNode = createNode(1, 0, 5); 
     
     printf("Metric Assignment: OK\n");
     printf("\nCreation: OK\n");
@@ -50,7 +50,7 @@ void test_push_semantics() {
 
     printf("\n\nTesting push_back():\n\n");
 
-    struct ProcessNode *p1 = createNode(0, 0, 1);
+    struct SensorTask *p1 = createNode(0, 0, 1);
     push_back(list, p1);
     assert(list->tail->prev==p1 && p1->next == list->tail && "Error: push_back() didn't update tail sentinel node.");
     printf("Links with Tail: OK.\n");
@@ -59,7 +59,7 @@ void test_push_semantics() {
     printf("\npush_back(): OK\n");
 
     printf("\n\nTesting push_front():\n\n");
-    struct ProcessNode *p2 = createNode(0, 1, 2);
+    struct SensorTask *p2 = createNode(0, 1, 2);
     push_front(list, p2);
     assert(list->head->next == p2 && p2->prev == list->head && "Error: push_front() didn't update head sentinel node.");
     printf("Links with Head: OK.\n");
@@ -80,11 +80,11 @@ void test_pop_semantics() {
         return;
     }
 
-    struct ProcessNode *p1 = createNode(1, 0, 2);
-    struct ProcessNode *p2 = createNode(2, 1, 2);
+    struct SensorTask *p1 = createNode(1, 0, 2);
+    struct SensorTask *p2 = createNode(2, 1, 2);
 
     if (!p1 || !p2) {
-        printf("Memory allocation for ProcessNode has failed.\n");
+        printf("Memory allocation for SensorTask has failed.\n");
     }
 
     push_back(list, p1);
@@ -93,7 +93,7 @@ void test_pop_semantics() {
     printf("\n\nTesting pop semantics:\n\n");
 
     printf("\n\nTesting pop_back():\n\n");
-    struct ProcessNode *popped = pop_back(list); // p2 will be popped
+    struct SensorTask *popped = pop_back(list); // p2 will be popped
     assert(popped == p2 && "Error: Mechanics is faulty.");
     printf("pop_back() mechanics: OK.\n");
     assert(list->tail->prev == p1 && "Error: Link was not updated.");
@@ -126,12 +126,12 @@ void test_destroy() {
         return;
     }
 
-    struct ProcessNode *p1 = createNode(1, 0, 1);
-    struct ProcessNode *p2 = createNode(2, 1, 2);
-    struct ProcessNode *p3 = createNode(3, 2, 3);
+    struct SensorTask *p1 = createNode(1, 0, 1);
+    struct SensorTask *p2 = createNode(2, 1, 2);
+    struct SensorTask *p3 = createNode(3, 2, 3);
 
     if (!p1 || !p2 || !p3) {
-        printf("Memory allocation for ProcessNode has failed.\n");
+        printf("Memory allocation for SensorTask has failed.\n");
         return;
     }
     push_back(list, p1);
@@ -156,7 +156,7 @@ void test_display() {
         return;
     }
 
-    struct ProcessNode *process[5];
+    struct SensorTask *process[5];
     for(int i = 0; i < 5; i++){
         process[i] = createNode(i + 1, i, i + 1);
 

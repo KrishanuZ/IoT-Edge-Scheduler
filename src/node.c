@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include "node.h"
 
-struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
-    struct ProcessNode *newNode = (struct ProcessNode *)malloc(sizeof(struct ProcessNode));
+struct SensorTask *createNode(pid_t pid, unsigned int at, unsigned int bt) {
+    struct SensorTask *newNode = (struct SensorTask *)malloc(sizeof(struct SensorTask));
 
     if (!newNode) {
         return NULL;
@@ -27,7 +27,7 @@ struct ProcessNode *createNode(pid_t pid, unsigned int at, unsigned int bt) {
     return newNode;
 }
 
-struct ProcessNode *destroyNode(struct ProcessNode *node) {
+struct SensorTask *destroyNode(struct SensorTask *node) {
 
     // Explicitly clear out the links
     node->prev = NULL;
