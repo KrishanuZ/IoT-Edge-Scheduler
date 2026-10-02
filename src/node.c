@@ -2,7 +2,7 @@
 #include <string.h>
 #include "node.h"
 
-struct SensorTask *createNode(pid_t pid, const char *taskName, unsigned int at, unsigned int bt) {
+struct SensorTask *createTask(pid_t pid, const char *taskName, unsigned int at, unsigned int bt) {
     struct SensorTask *newNode = (struct SensorTask *)malloc(sizeof(struct SensorTask));
 
     if (!newNode) {
@@ -32,7 +32,7 @@ struct SensorTask *createNode(pid_t pid, const char *taskName, unsigned int at, 
     return newNode;
 }
 
-struct SensorTask *destroyNode(struct SensorTask *node) {
+struct SensorTask *destroyTask(struct SensorTask *node) {
 
     // Explicitly clear out the links
     node->prev = NULL;

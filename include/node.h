@@ -35,7 +35,7 @@ struct SensorTask {
 };
 
 // Core Functions:
-struct SensorTask *createNode(pid_t, unsigned int, unsigned int);
-struct SensorTask *destroyNode(struct SensorTask*);
+struct SensorTask *createTask(pid_t, const char*, unsigned int, unsigned int);
+struct SensorTask *destroyTask(struct SensorTask*);
 
 #endif
