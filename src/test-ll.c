@@ -156,11 +156,15 @@ void test_display() {
         return;
     }
 
-    struct SensorTask *process[5];
-    for(int i = 0; i < 5; i++){
-        process[i] = createTask(i + 1, "Task %d", i + 1);
+    struct SensorTask *tasks[5];
+    char taskname[32]; // To store the task name
 
-        push_back(list, process[i]);
+    for(int i = 0; i < 5; i++){
+        snprintf(taskname, sizeof(taskname), "Task %d", i + 1); // Building string to prevent mem leaks
+
+        tasks[i] = createTask(i + 1, taskname, i * 2, i * 5);
+
+        push_back(list, tasks[i]);
     }
     displayList(list);
 
