@@ -29,7 +29,7 @@ struct DoublyLinkedList *createList() {
     return list;
 }
 
-bool push_front(struct DoublyLinkedList *list, struct ProcessNode *node) {
+bool push_front(struct DoublyLinkedList *list, struct SensorTask *node) {
     if (!list || !node) {
         return false;
     }
@@ -47,7 +47,7 @@ bool push_front(struct DoublyLinkedList *list, struct ProcessNode *node) {
     return true;
 }
 
-bool push_back(struct DoublyLinkedList *list, struct ProcessNode *node) {
+bool push_back(struct DoublyLinkedList *list, struct SensorTask *node) {
     if (!list || !node) {
         return false;
     }
@@ -72,12 +72,12 @@ bool checkEmptyList(struct DoublyLinkedList *list) {
     return false;
 }
 
-struct ProcessNode *pop_front(struct DoublyLinkedList *list) {
+struct SensorTask *pop_front(struct DoublyLinkedList *list) {
     if (!list || checkEmptyList(list)) {
         return NULL;
     }
     
-    struct ProcessNode *popNode = list->head->next;
+    struct SensorTask *popNode = list->head->next;
 
     // Update links of neighbors
     list->head->next = popNode->next;
@@ -92,12 +92,12 @@ struct ProcessNode *pop_front(struct DoublyLinkedList *list) {
     return popNode;
 }
 
-struct ProcessNode *pop_back(struct DoublyLinkedList *list) {
+struct SensorTask *pop_back(struct DoublyLinkedList *list) {
     if (!list || checkEmptyList(list)) {
         return NULL;
     }
 
-    struct ProcessNode *popNode = list->tail->prev;
+    struct SensorTask *popNode = list->tail->prev;
 
     // Update links of neighbors:
     list->tail->prev = popNode->prev;
@@ -135,7 +135,7 @@ void displayList(struct DoublyLinkedList *list) {
         return;
     }
 
-    struct ProcessNode *currNode = list->head->next;
+    struct SensorTask *currNode = list->head->next;
 
     printf("Process ID | Arrival Time | Burst Time | Completion Time | TurnAround Time | Waiting Time\n");
     while(currNode != list->tail) {
@@ -144,7 +144,7 @@ void displayList(struct DoublyLinkedList *list) {
     }
 }
 
-void swapProcess(struct ProcessNode *a, struct ProcessNode *b) {
+void swapProcess(struct SensorTask *a, struct SensorTask *b) {
     // Storing 'a' in temp
     pid_t temp_id = a->pid;
     unsigned int temp_at = a->at;
@@ -178,10 +178,10 @@ void sortByArrival(struct DoublyLinkedList *list) {
     }
 
     // Insertion Sort:
-    struct ProcessNode *currNode = list->head->next->next; // Starting from second node
+    struct SensorTask *currNode = list->head->next->next; // Starting from second node
 
     while (currNode != list->tail) {
-        struct ProcessNode *j = currNode; // Storing the current Process
+        struct SensorTask *j = currNode; // Storing the current Process
 
         while (j->prev != list->head && j->at < j->prev->at) {
             swapProcess(j, j->prev);
@@ -198,10 +198,10 @@ void sortByBurst(struct DoublyLinkedList *list) {
     }
     
     // Insertion Sort:
-    struct ProcessNode *currNode = list->head->next->next; // From 2nd node
+    struct SensorTask *currNode = list->head->next->next; // From 2nd node
 
     while (currNode != list->tail) {
-        struct ProcessNode *j = currNode;
+        struct SensorTask *j = currNode;
 
         while (j->prev != list->head && j->bt < j->prev->bt) { // Checking by 'bt`
             swapProcess(j, j->prev);
