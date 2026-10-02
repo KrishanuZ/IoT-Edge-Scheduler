@@ -17,6 +17,7 @@ wt: Waiting Time
 */
 struct SensorTask {
     pid_t pid; // Process ID
+    char taskName[32]; // Storing task's name, prevent mem leaks
 
     // Time Metrics:
     unsigned int at;    
