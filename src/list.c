@@ -137,9 +137,9 @@ void displayList(struct DoublyLinkedList *list) {
 
     struct SensorTask *currNode = list->head->next;
 
-    printf("Process ID | Arrival Time | Burst Time | Completion Time | TurnAround Time | Waiting Time\n");
+    printf("Task ID | Task Name | Arrival Time | Burst Time | Completion Time | TurnAround Time | Waiting Time\n");
     while(currNode != list->tail) {
-        printf("%-10d | %-12d | %-10d | %-15d | %-15d | %-12d\n", currNode->pid, currNode->at, currNode->bt, currNode->ct, currNode->tat, currNode->wt);
+        printf("%-7d | %-9s | %-12d | %-10d | %-15d | %-15d | %-12d\n", currNode->pid, currNode->taskName, currNode->at, currNode->bt, currNode->ct, currNode->tat, currNode->wt);
         currNode = currNode->next;
     }
 }
