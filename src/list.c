@@ -12,11 +12,11 @@ struct DoublyLinkedList *createList() {
         return NULL;
     }
 
-    // Using the concept of Sentinel Nodes
-    list->head = createTask(-1, "[SENTINEL-HEAD]", 0, 0); // (pid, taskName, at, bt) 
-    list->tail = createTask(-1, "[SENTINEL-TAIL]", 0, 0); // (pid, taskName, at, bt)
+    // Using the concept of Sentinel tasks
+    list->head = createTask(-1, "[SENTINEL-HEAD]", 0, 0); // (tid, taskName, at, bt) 
+    list->tail = createTask(-1, "[SENTINEL-TAIL]", 0, 0); // (tid, taskName, at, bt)
     
-    // Linking the sentinel nodes(empty list):
+    // Linking the sentinel tasks(empty list):
     list->head->next = list->tail;
     list->tail->prev = list->head;
 
@@ -29,36 +29,36 @@ struct DoublyLinkedList *createList() {
     return list;
 }
 
-bool push_front(struct DoublyLinkedList *list, struct SensorTask *node) {
-    if (!list || !node) {
+bool push_front(struct DoublyLinkedList *list, struct SensorTask *task) {
+    if (!list || !task) {
         return false;
     }
 
-    // Link node with neighbors:
-    node->next = list->head->next; // Link the previous 'first' node to the new one
-    node->prev = list->head; // Link new node's prev to head sentinel
+    // Link task with neighbors:
+    task->next = list->head->next; // Link the previous 'first' task to the new one
+    task->prev = list->head; // Link new task's prev to head sentinel
 
-    // Link neighbors to the new node:
-    node->next->prev = node; // The previous 'first' node to the new one
-    list->head->next = node; // The new node is the first node
+    // Link neighbors to the new task:
+    task->next->prev = task; // The previous 'first' task to the new one
+    list->head->next = task; // The new task is the first task
     
     list->length++;
 
     return true;
 }
 
-bool push_back(struct DoublyLinkedList *list, struct SensorTask *node) {
-    if (!list || !node) {
+bool push_back(struct DoublyLinkedList *list, struct SensorTask *task) {
+    if (!list || !task) {
         return false;
     }
 
-    // Link node with neighbors:
-    node->next = list->tail;
-    node->prev = list->tail->prev;
+    // Link task with neighbors:
+    task->next = list->tail;
+    task->prev = list->tail->prev;
 
-    // Link neighbors with node:
-    node->prev->next = node;
-    list->tail->prev = node;
+    // Link neighbors with task:
+    task->prev->next = task;
+    list->tail->prev = task;
 
     list->length++;
 
@@ -77,19 +77,19 @@ struct SensorTask *pop_front(struct DoublyLinkedList *list) {
         return NULL;
     }
     
-    struct SensorTask *popNode = list->head->next;
+    struct SensorTask *poptask = list->head->next;
 
     // Update links of neighbors
-    list->head->next = popNode->next;
-    popNode->next->prev = list->head;
+    list->head->next = poptask->next;
+    poptask->next->prev = list->head;
 
-    // De-link node with neighbors:
-    popNode->next = NULL;
-    popNode->prev = NULL;
+    // De-link task with neighbors:
+    poptask->next = NULL;
+    poptask->prev = NULL;
 
     list->length --;
 
-    return popNode;
+    return poptask;
 }
 
 struct SensorTask *pop_back(struct DoublyLinkedList *list) {
@@ -97,19 +97,19 @@ struct SensorTask *pop_back(struct DoublyLinkedList *list) {
         return NULL;
     }
 
-    struct SensorTask *popNode = list->tail->prev;
+    struct SensorTask *popTask = list->tail->prev;
 
     // Update links of neighbors:
-    list->tail->prev = popNode->prev;
-    popNode->prev->next = list->tail;
+    list->tail->prev = popTask->prev;
+    popTask->prev->next = list->tail;
 
-    // De-link node with neighbors:
-    popNode->next = NULL;
-    popNode->prev = NULL;
+    // De-link task with neighbors:
+    popTask->next = NULL;
+    popTask->prev = NULL;
 
     list->length--;
 
-    return popNode;
+    return popTask;
 }
 
 struct DoublyLinkedList *destroyList(struct DoublyLinkedList* list) {
@@ -118,8 +118,8 @@ struct DoublyLinkedList *destroyList(struct DoublyLinkedList* list) {
     }
 
     while (!checkEmptyList(list)) {
-        struct SensorTask *deleteNode = pop_front(list);
-        destroyTask(deleteNode);
+        struct SensorTask *deleteTask = pop_front(list);
+        destroyTask(deleteTask);
     }
     
     free(list->head);
@@ -135,18 +135,18 @@ void displayList(struct DoublyLinkedList *list) {
         return;
     }
 
-    struct SensorTask *currNode = list->head->next;
+    struct SensorTask *currTask = list->head->next;
 
     printf("Task ID | Task Name | Arrival Time | Burst Time | Completion Time | TurnAround Time | Waiting Time\n");
-    while(currNode != list->tail) {
-        printf("%-7d | %-9s | %-12d | %-10d | %-15d | %-15d | %-12d\n", currNode->pid, currNode->taskName, currNode->at, currNode->bt, currNode->ct, currNode->tat, currNode->wt);
-        currNode = currNode->next;
+    while(currTask != list->tail) {
+        printf("%-7d | %-9s | %-12d | %-10d | %-15d | %-15d | %-12d\n", currTask->tid, currTask->taskName, currTask->at, currTask->bt, currTask->ct, currTask->tat, currTask->wt);
+        currTask = currTask->next;
     }
 }
 
 void swapProcess(struct SensorTask *a, struct SensorTask *b) {
     // Storing 'a' in temp
-    pid_t temp_id = a->pid;
+    pid_t temp_id = a->tid;
     unsigned int temp_at = a->at;
     unsigned int temp_bt = a->bt;
     unsigned int temp_ct = a->ct;
@@ -154,7 +154,7 @@ void swapProcess(struct SensorTask *a, struct SensorTask *b) {
     unsigned int temp_tat = a->tat;
     unsigned int temp_wt = a->wt;
 
-    a->pid = b->pid;
+    a->tid = b->tid;
     a->at = b->at;
     a->bt = b->bt;
     a->ct = b->ct;
@@ -162,7 +162,7 @@ void swapProcess(struct SensorTask *a, struct SensorTask *b) {
     a->tat = b->tat;
     a->wt = b->wt;
 
-    b->pid = temp_id;
+    b->tid = temp_id;
     b->at = temp_at;
     b->bt = temp_bt;
     b->ct = temp_ct;
@@ -178,16 +178,16 @@ void sortByArrival(struct DoublyLinkedList *list) {
     }
 
     // Insertion Sort:
-    struct SensorTask *currNode = list->head->next->next; // Starting from second node
+    struct SensorTask *currTask = list->head->next->next; // Starting from second node
 
-    while (currNode != list->tail) {
-        struct SensorTask *j = currNode; // Storing the current Process
+    while (currTask != list->tail) {
+        struct SensorTask *j = currTask; // Storing the current Process
 
         while (j->prev != list->head && j->at < j->prev->at) {
             swapProcess(j, j->prev);
             j = j->prev;
         }
-        currNode = currNode->next; // Onto the next Process
+        currTask = currTask->next; // Onto the next Process
     }
 }
 
@@ -198,15 +198,15 @@ void sortByBurst(struct DoublyLinkedList *list) {
     }
     
     // Insertion Sort:
-    struct SensorTask *currNode = list->head->next->next; // From 2nd node
+    struct SensorTask *currTask = list->head->next->next; // From 2nd task
 
-    while (currNode != list->tail) {
-        struct SensorTask *j = currNode;
+    while (currTask != list->tail) {
+        struct SensorTask *j = currTask;
 
         while (j->prev != list->head && j->bt < j->prev->bt) { // Checking by 'bt`
             swapProcess(j, j->prev);
             j = j->prev;
         }
-        currNode = currNode->next;
+        currTask = currTask->next;
     }
 }
