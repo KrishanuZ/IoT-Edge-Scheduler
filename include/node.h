@@ -15,7 +15,7 @@ ct: Completion Time
 tat: TurnAround Time
 wt: Waiting Time
 */
-struct ProcessNode {
+struct SensorTask {
     pid_t pid; // Process ID
 
     // Time Metrics:
@@ -29,12 +29,12 @@ struct ProcessNode {
 
     bool is_completed;
     
-    struct ProcessNode *prev;
-    struct ProcessNode *next;
+    struct SensorTask *prev;
+    struct SensorTask *next;
 };
 
 // Core Functions:
-struct ProcessNode *createNode(pid_t, unsigned int, unsigned int);
-struct ProcessNode *destroyNode(struct ProcessNode*);
+struct SensorTask *createNode(pid_t, unsigned int, unsigned int);
+struct SensorTask *destroyNode(struct SensorTask*);
 
 #endif
