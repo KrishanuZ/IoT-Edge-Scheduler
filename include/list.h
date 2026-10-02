@@ -1,7 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 
-#include "node.h"
+#include "task.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
