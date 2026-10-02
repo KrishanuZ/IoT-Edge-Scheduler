@@ -20,6 +20,8 @@ struct SensorTask {
 
 **Note**: Using `char taskName[32]` ensures no leak involving strings.
 
+---
+
 | Variable | Metric | Description |
 | :--- | :--- | :--- |
 | `tid` | Task ID | Unique ID assigned to a task. |
@@ -34,7 +36,7 @@ struct SensorTask {
 ### Core Functions
 
 1. ```c
-    struct Processtask *createtask(pid_t tid, unsigned int at, unsigned int bt)
+    struct Processtask *createTask(pid_t tid, unsigned int at, unsigned int bt)
    ```
 
     * **Concept**: Allocates memory to a process task using `malloc()`.
@@ -46,7 +48,7 @@ struct SensorTask {
         * **Output Space**: `O(1)`
 
 2. ```c
-    struct SensorTask *destroytask(struct SensorTask *task)
+    struct SensorTask *destroyTask(struct SensorTask *task)
    ```
 
     * **Concept**: Deallocates the memory of a process task using `free()`.
