@@ -1,9 +1,9 @@
 # Architecture: **Doubly Linked List**
 
-## Structure: **Node**
+## Structure: **task**
 
 ```c
-struct ProcessNode {
+struct SensorTask {
     pid_t tid;
     char taskName[32]; 
     unsigned int at;    
@@ -13,8 +13,8 @@ struct ProcessNode {
     unsigned int wt;
     unsigned int rt;
     
-    struct ProcessNode *prev;
-    struct ProcessNode *next;
+    struct SensorTask *prev;
+    struct SensorTask *next;
 };
 ```
 
@@ -34,11 +34,11 @@ struct ProcessNode {
 ### Core Functions
 
 1. ```c
-    struct ProcessNode *createNode(pid_t tid, unsigned int at, unsigned int bt)
+    struct Processtask *createtask(pid_t tid, unsigned int at, unsigned int bt)
    ```
 
-    * **Concept**: Allocates memory to a process node using `malloc()`.
-    * **Output**: Returns a pointer to a struct of type `ProcessNode`.
+    * **Concept**: Allocates memory to a process task using `malloc()`.
+    * **Output**: Returns a pointer to a struct of type `SensorTask`.
     * **Time Complexity**: `O(1)`
     * **Space Complexity**:
         * **Input Space**: `O(1)`
@@ -46,10 +46,10 @@ struct ProcessNode {
         * **Output Space**: `O(1)`
 
 2. ```c
-    struct ProcessNode *destroyNode(struct ProcessNode *node)
+    struct SensorTask *destroytask(struct SensorTask *task)
    ```
 
-    * **Concept**: Deallocates the memory of a process node using `free()`.
+    * **Concept**: Deallocates the memory of a process task using `free()`.
     * **Output**: Explicitly returns `NULL` pointer.
     * **Time Complexity**: `O(1)`
     * **Space Complexity**:
@@ -63,8 +63,8 @@ struct ProcessNode {
 
 ```c
 struct DoublyLinkedList {
-    struct ProcessNode *head;
-    struct ProcessNode *tail;
+    struct SensorTask *head;
+    struct SensorTask *tail;
     size_t length; 
 };
 ```
@@ -77,7 +77,7 @@ struct DoublyLinkedList {
     struct DoublyLinkedList *createList()
    ```
 
-    * **Concept**: Allocates memory to a double ended queue of type `DoublyLinkedList` consisting of structures of type `ProcessNode`.
+    * **Concept**: Allocates memory to a double ended queue of type `DoublyLinkedList` consisting of structures of type `SensorTask`.
     * **Output**: Returns a pointer to a struct of type `DoublyLinkedList`.
     * **Time Complexity**: `O(1)`
     * **Space Complexity**:
@@ -86,10 +86,10 @@ struct DoublyLinkedList {
       * **Output Space**: `O(1)`
 
 2. ```c
-    bool push_front(struct DoublyLinkedList*, struct ProcessNode*)
+    bool push_front(struct DoublyLinkedList*, struct SensorTask*)
    ```
 
-    * **Concept**: Adds a `ProcessNode` at the start of the list. Increments length of the list by **1**.
+    * **Concept**: Adds a `SensorTask` at the start of the list. Increments length of the list by **1**.
     * **Output**: Returns `false` when **NULL** pointers are passed. Returns `true` upon successful insertion.
     * **Time Complexity**: `O(1)`
     * **Space Complexity**:
@@ -98,10 +98,10 @@ struct DoublyLinkedList {
       * **Output Space**: `O(1)`
 
 3. ```c
-    bool push_back(struct DoublyLinkedList*, struct ProcessNode*)
+    bool push_back(struct DoublyLinkedList*, struct SensorTask*)
    ```
 
-   * **Concept**: Adds a `ProcessNode` at the end of the list. Increments length of the list by **1**.
+   * **Concept**: Adds a `SensorTask` at the end of the list. Increments length of the list by **1**.
    * **Output**: Returns `false` when **NULL** pointers are passed. Returns `true` upon successful insertion.
    * **Time Complexity**: `O(1)`
    * **Space Complexity**:
@@ -110,10 +110,10 @@ struct DoublyLinkedList {
      * **Output Space**: `O(1)`
 
 4. ```c
-    struct ProcessNode *pop_front(struct DoublyLinkedList*)
+    struct SensorTask *pop_front(struct DoublyLinkedList*)
    ```
 
-   * **Concept**: Removes a `ProcessNode` from the start of the list. Decrements length of the list by **1**.
+   * **Concept**: Removes a `SensorTask` from the start of the list. Decrements length of the list by **1**.
    * **Output**: Returns `false` when **NULL** pointers are passed. Returns `true` upon successful removal.
    * **Time Complexity**: `O(1)`
    * **Space Complexity**:
@@ -122,10 +122,10 @@ struct DoublyLinkedList {
      * **Output Space**: `O(1)`
 
 5. ```c
-    struct ProcessNode *pop_back(struct DoublyLinkedList*)
+    struct SensorTask *pop_back(struct DoublyLinkedList*)
    ```
 
-   * **Concept**: Removes a `ProcessNode` at the end of the list. Decrements length of the list by **1**.
+   * **Concept**: Removes a `SensorTask` at the end of the list. Decrements length of the list by **1**.
    * **Output**: Returns `false` when **NULL** pointers are passed. Returns `true` upon successful removal.
    * **Time Complexity**: `O(1)`
    * **Space Complexity**:
@@ -137,7 +137,7 @@ struct DoublyLinkedList {
     struct DoublyLinkedList *destroyList(struct DoublyLinkedList*)
    ```
 
-   * **Concept**: Traverses and de-allocates all the `ProcessNode` sequentially.
+   * **Concept**: Traverses and de-allocates all the `SensorTask` sequentially.
    * **Output**: Returns a **NULL** pointer.
    * **Time Complexity**: `O(N)`
    * **Space Complexity**:
@@ -149,8 +149,8 @@ struct DoublyLinkedList {
     struct DoublyLinkedList *displayList(struct DoublyLinkedList*)
    ```
 
-   * **Concept**: Traverses and displays `ProcessNode`.
-   * **Output**: Time metrics of each `ProcessNode`.
+   * **Concept**: Traverses and displays `SensorTask`.
+   * **Output**: Time metrics of each `SensorTask`.
    * **Time Complexity**: `O(N)`
    * **Space Complexity**:
      * **Input Space**: `O(1)`
