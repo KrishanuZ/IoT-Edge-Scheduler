@@ -13,8 +13,8 @@ struct DoublyLinkedList *createList() {
     }
 
     // Using the concept of Sentinel Nodes
-    list->head = createNode(-1, 0, 0); // (pid, at, bt) 
-    list->tail = createNode(-1, 0, 0); // (pid, at, bt)
+    list->head = createTask(-1, 0, 0); // (pid, at, bt) 
+    list->tail = createTask(-1, 0, 0); // (pid, at, bt)
     
     // Linking the sentinel nodes(empty list):
     list->head->next = list->tail;
@@ -118,8 +118,8 @@ struct DoublyLinkedList *destroyList(struct DoublyLinkedList* list) {
     }
 
     while (!checkEmptyList(list)) {
-        struct ProcessNode *deleteNode = pop_front(list);
-        destroyNode(deleteNode);
+        struct SensorTask *deleteNode = pop_front(list);
+        destroyTask(deleteNode);
     }
     
     free(list->head);
