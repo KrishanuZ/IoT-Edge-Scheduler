@@ -1,5 +1,5 @@
-#ifndef NODE_H
-#define NODE_H
+#ifndef TASK_H
+#define TASK_H
 
 #include <stdlib.h>
 #include <unistd.h>
