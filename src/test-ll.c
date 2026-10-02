@@ -6,7 +6,7 @@
 
 void node_creation_deletion() {
     // (Reconstructed node creation since it was cut off above line 21)
-    struct SensorTask *newNode = createNode(1, 0, 5); 
+    struct SensorTask *newNode = createTask(1, "Task1", 0, 5); 
     
     printf("Metric Assignment: OK\n");
     printf("\nCreation: OK\n");
@@ -14,11 +14,11 @@ void node_creation_deletion() {
     //Deletion:
     printf("\n\nTesting Deletion:\n");
     assert(newNode->prev == NULL && newNode->next==NULL && "Error: Links are not NULL.");
-    newNode = destroyNode(newNode);
+    newNode = destroyTask(newNode);
     assert(newNode==NULL && "Error: Node's memory has leaked.");
     printf("\nDeletion: OK.\n");
 
-    newNode = destroyNode(newNode);
+    newNode = destroyTask(newNode);
 }
 
 void list_creation() {
@@ -50,7 +50,7 @@ void test_push_semantics() {
 
     printf("\n\nTesting push_back():\n\n");
 
-    struct SensorTask *p1 = createNode(0, 0, 1);
+    struct SensorTask *p1 = createTask(0, "Task1", 0, 1);
     push_back(list, p1);
     assert(list->tail->prev==p1 && p1->next == list->tail && "Error: push_back() didn't update tail sentinel node.");
     printf("Links with Tail: OK.\n");
@@ -59,7 +59,7 @@ void test_push_semantics() {
     printf("\npush_back(): OK\n");
 
     printf("\n\nTesting push_front():\n\n");
-    struct SensorTask *p2 = createNode(0, 1, 2);
+    struct SensorTask *p2 = createTask(0, "Task2", 1, 2);
     push_front(list, p2);
     assert(list->head->next == p2 && p2->prev == list->head && "Error: push_front() didn't update head sentinel node.");
     printf("Links with Head: OK.\n");
@@ -80,8 +80,8 @@ void test_pop_semantics() {
         return;
     }
 
-    struct SensorTask *p1 = createNode(1, 0, 2);
-    struct SensorTask *p2 = createNode(2, 1, 2);
+    struct SensorTask *p1 = createTask(1, "Task1", 0, 2);
+    struct SensorTask *p2 = createTask(2, "Task2", 1, 2);
 
     if (!p1 || !p2) {
         printf("Memory allocation for SensorTask has failed.\n");
@@ -126,9 +126,9 @@ void test_destroy() {
         return;
     }
 
-    struct SensorTask *p1 = createNode(1, 0, 1);
-    struct SensorTask *p2 = createNode(2, 1, 2);
-    struct SensorTask *p3 = createNode(3, 2, 3);
+    struct SensorTask *p1 = createTask(1, "Task1", 0, 1);
+    struct SensorTask *p2 = createTask(2, "Task2", 1, 2);
+    struct SensorTask *p3 = createTask(3, "Task3", 2, 3);
 
     if (!p1 || !p2 || !p3) {
         printf("Memory allocation for SensorTask has failed.\n");
@@ -158,7 +158,7 @@ void test_display() {
 
     struct SensorTask *process[5];
     for(int i = 0; i < 5; i++){
-        process[i] = createNode(i + 1, i, i + 1);
+        process[i] = createTask(i + 1, "Task %d", i + 1);
 
         push_back(list, process[i]);
     }
