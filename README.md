@@ -4,7 +4,8 @@
 
 ```c
 struct ProcessNode {
-    pid_t pid; 
+    pid_t pid;
+    char taskName[32]; 
     unsigned int at;    
     unsigned int bt;   
     unsigned int ct;    
@@ -16,6 +17,8 @@ struct ProcessNode {
     struct ProcessNode *next;
 };
 ```
+
+**Note**: Using `char taskName[32]` ensures no leak involving strings.
 
 | Variable | Metric | Description |
 | :--- | :--- | :--- |
