@@ -1,13 +1,19 @@
 #include <stdlib.h>
+#include <string.h>
 #include "node.h"
 
-struct SensorTask *createNode(pid_t pid, unsigned int at, unsigned int bt) {
+struct SensorTask *createNode(pid_t pid, const char *taskName, unsigned int at, unsigned int bt) {
     struct SensorTask *newNode = (struct SensorTask *)malloc(sizeof(struct SensorTask));
 
     if (!newNode) {
         return NULL;
     }
 
+    // TaskName
+
+    strncpy(newNode->taskName, taskName, 31); //Max of 31 charaxcters
+    newNode->taskName[31] = '\0'; // Add null char for termination
+     
     // Assign links to NULL
     newNode->prev = NULL;
     newNode->next = NULL;
